@@ -12,6 +12,7 @@ services:
     env_file: .env
     working_dir: /opt/app
     command: npm run start
+    restart: always
 
   # redis
   redis:
