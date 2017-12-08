@@ -1,0 +1,26 @@
+version: '3.0'
+
+services:
+
+  # node
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile-node
+    volumes:
+      - ./app:/opt/app
+    env_file: .env
+    working_dir: /opt/app
+    command: npm run start
+
+  # redis
+  redis:
+    image: 'redis:latest'
+
+volumes:
+  db-storage:
+
+networks:
+  default:
+    external:
+      name: hubot_link
