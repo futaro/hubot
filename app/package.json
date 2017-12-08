@@ -5,7 +5,7 @@
   "author": "Machida Masashi <masashi.machida@aiasahi.jp>",
   "description": "A helpful robot -- pipo -- for AI",
   "scripts": {
-    "start": "./bin/hubot --dapter slack",
+    "start": "./bin/hubot --adapter slack",
     "dev": "./bin/hubot"
   },
   "dependencies": {
