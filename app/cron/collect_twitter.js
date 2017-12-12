@@ -1,6 +1,6 @@
 'use strict'
 
-import Pipo from '../lib/pipo/index'
+const Pipo = require('../lib/pipo/index')
 
 const p = new Pipo()
 
