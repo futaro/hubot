@@ -1,0 +1,44 @@
+version: '3.0'
+
+services:
+
+  # node
+  node:
+    image: 'futaro/mecab-node:latest'
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - ./app:/opt/app
+    env_file: .env
+    working_dir: /opt/app
+    command: npm run start
+    restart: always
+
+  # storage
+  db-storage:
+    image: 'busybox:latest'
+    volumes:
+      - /var/lib/mysql
+
+  # MySQL
+  mysql:
+    image: 'mysql:5.7.20'
+    ports:
+      - '3306:3306'
+    env_file: .env
+    volumes:
+      - db-storage:/var/lib/mysql
+      - ./mysql.conf.d:/etc/mysql/conf.d
+
+  # redis
+  redis:
+    image: 'redis:latest'
+
+volumes:
+  db-storage:
+
+networks:
+  default:
+    external:
+      name: hubot_link
