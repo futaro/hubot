@@ -20,7 +20,8 @@ module.exports = (robot) ->
 
   robot.hear /.*/i, (res) ->
     pipo.learn 'from_bot', (new Date()).getTime(), res.message.text, () ->
-      console.log('learn')
+      pipo.parse () ->
+        console.log('learn')
 
 
 
