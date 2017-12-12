@@ -8,7 +8,7 @@ const
     process.env.MYSQL_USER,
     process.env.MYSQL_PASSWORD,
     {
-      host            : 'mysql',
+      host            : process.env.MYSQL_HOST,
       dialect         : 'mysql',
       pool            : {
         max    : 5,

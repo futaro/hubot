@@ -12,7 +12,7 @@ var _sequelize2 = _interopRequireDefault(_sequelize);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const sequelize = new _sequelize2.default(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
-  host: 'mysql',
+  host: process.env.MYSQL_HOST,
   dialect: 'mysql',
   pool: {
     max: 5,
