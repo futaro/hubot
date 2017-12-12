@@ -6,14 +6,50 @@
   "description": "A helpful robot -- pipo -- for AI",
   "scripts": {
     "start": "./bin/hubot --adapter slack",
-    "dev": "./bin/hubot"
+    "dev": "./bin/hubot",
+    "watch": "cross-env NODE_ENV=node babel ./src --watch --out-dir ./lib",
+    "build": "npm run build:node",
+    "build:node": "cross-env NODE_ENV=node babel ./src --out-dir ./lib"
   },
   "dependencies": {
     "hubot": "^2.19.0",
     "hubot-redis-brain": "0.0.4",
-    "hubot-slack": "^4.4.0"
+    "hubot-slack": "^4.4.0",
+    "mecab-async": "^0.1.2",
+    "mysql2": "^1.5.1",
+    "node-twitter": "^0.5.3",
+    "sequelize": "^4.28.0",
+    "twitter": "^1.7.1"
   },
   "engines": {
     "node": "0.10.x"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.1"
+  },
+  "babel": {
+    "env": {
+      "default": {
+        "presets": [
+          [
+            "env"
+          ]
+        ]
+      },
+      "node": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ]
+        ]
+      }
+    }
   }
 }
