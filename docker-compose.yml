@@ -14,7 +14,7 @@ services:
       - ./app:/opt/app
     env_file: .env
     working_dir: /opt/app
-#    command: npm run start
+    command: npm run start
     restart: always
 
   # storage
