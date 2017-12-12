@@ -4,7 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _sequelize = require('sequelize');
+
+var _sequelize2 = _interopRequireDefault(_sequelize);
+
 var _models = require('../models');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class SpeakService {
 
@@ -33,7 +39,14 @@ class SpeakService {
       return stack_words;
     }
 
-    let words = await _models.WordModel.findAll({ where: { first_word: last_word } });
+    let words = await _models.WordModel.findAll({
+      where: {
+        first_word: last_word,
+        point: {
+          [_sequelize2.default.Op.gt]: 1
+        }
+      }
+    });
     let weighting_words = [],
         i,
         j,

@@ -1,3 +1,4 @@
+import Sequelize from 'sequelize'
 import { WordModel } from '../models'
 
 export default class SpeakService {
@@ -29,7 +30,14 @@ export default class SpeakService {
       return stack_words
     }
 
-    let words = await WordModel.findAll({where: {first_word: last_word}})
+    let words = await WordModel.findAll({
+      where: {
+        first_word: last_word,
+        point: {
+          [Sequelize.Op.gt]:1
+        }
+      }
+    })
     let weighting_words = [], i, j, w
     for (i = 0; i < words.length; i++) {
       w = words[i]
