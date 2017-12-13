@@ -41,10 +41,7 @@ class SpeakService {
 
     let words = await _models.WordModel.findAll({
       where: {
-        first_word: last_word,
-        point: {
-          [_sequelize2.default.Op.gt]: 1
-        }
+        first_word: last_word
       }
     });
     let weighting_words = [],
