@@ -18,10 +18,10 @@ module.exports = (robot) ->
     pipo.speak (msg) ->
       res.send '@' + res.message.user.name + ' ' + msg
 
-  robot.hear /.*/i, (res) ->
-    pipo.learn 'from_bot', (new Date()).getTime(), res.message.text, () ->
-      pipo.parse () ->
-        console.log('learn')
+#  robot.hear /.*/i, (res) ->
+#    pipo.learn 'from_bot', (new Date()).getTime(), res.message.text, () ->
+#      pipo.parse () ->
+#        console.log('learn')
 
 
 
