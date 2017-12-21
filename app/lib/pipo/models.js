@@ -11,7 +11,13 @@ var _sequelize2 = _interopRequireDefault(_sequelize);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const sequelize = new _sequelize2.default(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
+const
+
+/**
+ *
+ * @type {Sequelize}
+ */
+sequelize = new _sequelize2.default(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
   host: process.env.MYSQL_HOST,
   dialect: 'mysql',
   pool: {
@@ -24,12 +30,26 @@ const sequelize = new _sequelize2.default(process.env.MYSQL_DATABASE, process.en
   // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
   operatorsAliases: false
 }),
-      WordModel = sequelize.define('words', {
+
+
+/**
+ * WordModel
+ *
+ * @type {Model}
+ */
+WordModel = sequelize.define('words', {
   first_word: _sequelize2.default.STRING,
   second_word: _sequelize2.default.STRING,
   point: _sequelize2.default.INTEGER
 }),
-      SourceModel = sequelize.define('sources', {
+
+
+/**
+ * SourceModel
+ *
+ * @type {Model}
+ */
+SourceModel = sequelize.define('sources', {
   type: _sequelize2.default.STRING,
   uid: _sequelize2.default.STRING,
   source: _sequelize2.default.TEXT,
@@ -54,6 +74,7 @@ const sequelize = new _sequelize2.default(process.env.MYSQL_DATABASE, process.en
   }
 });
 
+// migration
 (async () => {
   await sequelize.sync();
 })();

@@ -3,6 +3,11 @@
 import Sequelize from 'sequelize'
 
 const
+
+  /**
+   *
+   * @type {Sequelize}
+   */
   sequelize   = new Sequelize(
     process.env.MYSQL_DATABASE,
     process.env.MYSQL_USER,
@@ -22,12 +27,22 @@ const
     }
   ),
 
+  /**
+   * WordModel
+   *
+   * @type {Model}
+   */
   WordModel   = sequelize.define('words', {
     first_word : Sequelize.STRING,
     second_word: Sequelize.STRING,
     point      : Sequelize.INTEGER
   }),
 
+  /**
+   * SourceModel
+   *
+   * @type {Model}
+   */
   SourceModel = sequelize.define('sources', {
     type  : Sequelize.STRING,
     uid   : Sequelize.STRING,
@@ -59,7 +74,7 @@ const
   })
 ;
 
-
+// migration
 (async () => {
   await sequelize.sync()
 })()

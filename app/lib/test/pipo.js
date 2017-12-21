@@ -1,14 +1,14 @@
 'use strict';
 
-var _index = require('../pipo/index');
+const Pipo = require('../../lib/pipo/index');
 
-var _index2 = _interopRequireDefault(_index);
+const p = new Pipo();
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// p.collect(() => {
+//   process.exit(0)
+// })
 
-const p = new _index2.default();
-
-p.collect(() => {
+p.collect_users({ screen_name: 'ha_chu', include_rts: false, count: 200 }, () => {
   process.exit(0);
 });
 

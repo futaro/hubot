@@ -1,10 +1,14 @@
 'use strict'
 
-import Pipo from '../pipo/index'
+const Pipo = require('../../lib/pipo/index')
 
 const p = new Pipo()
 
-p.collect(() => {
+// p.collect(() => {
+//   process.exit(0)
+// })
+
+p.collect_users({screen_name:'ha_chu', include_rts: false, count: 200}, () => {
   process.exit(0)
 })
 
