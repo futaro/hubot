@@ -17,11 +17,11 @@ export default class CollectService {
 
     (async () => {
 
-      let latest_source = await SourceModel.findOne({where: {type: 'twitter'}, order:[['id', 'DESC']], limit: 1})
-      if (latest_source) {
-        let last_tweet = JSON.parse(latest_source.source)
-        options.max_id = last_tweet.id
-      }
+//      let latest_source = await SourceModel.findOne({where: {type: 'twitter'}, order:[['id', 'DESC']], limit: 1})
+//      if (latest_source) {
+//        let last_tweet = JSON.parse(latest_source.source)
+//        options.max_id = last_tweet.id
+ //     }
 
       const learn_service = new LearnService()
 
